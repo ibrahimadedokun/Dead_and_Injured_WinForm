@@ -74,6 +74,7 @@ namespace MyClassLibrary
                 }
             }
 
+            /*
             if (deadCounter == 0 && injuredCounter == 0)
             {
                 Console.WriteLine("That ain't the number");
@@ -91,6 +92,7 @@ namespace MyClassLibrary
                     Console.WriteLine($"{deadCounter} dead, {injuredCounter} injured", ConsoleColor.Yellow);
                 }
             }
+            */
             return false;
         }
     }

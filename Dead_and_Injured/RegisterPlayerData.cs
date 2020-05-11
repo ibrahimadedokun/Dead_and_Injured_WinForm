@@ -18,15 +18,22 @@ namespace Dead_and_Injured
             InitializeComponent();
         }
 
+        public RegisterPlayerDataForm(int numOfDigits)
+        {
+            InitializeComponent();
+            NumOfDigits = numOfDigits;
+        }
+
         public static string P1name = null;
         public static string P2name = null;
         public static string P1num = null;
         public static string P2num = null;
+        public static int NumOfDigits;
 
         public void PlayerOneSaveDataButton_Click(object sender, EventArgs e)
         {
             bool isUsernameValid = Operation.TextValidator(PlayerOneUsernameTextBox);
-            bool isNumberValid = Operation.NumberValidator(PlayerOneSecretNumTextBox);
+            bool isNumberValid = Operation.NumberValidator(PlayerOneSecretNumTextBox, NumOfDigits);
             if (isUsernameValid && isNumberValid)
             {
                 P1name = PlayerOneUsernameTextBox.Text;
@@ -43,7 +50,7 @@ namespace Dead_and_Injured
         public void PlayerTwoDataSaveButton_Click(object sender, EventArgs e)
         {
             bool isUsernameValid = Operation.TextValidator(PlayerTwoUsernameTextBox);
-            bool isNumberValid = Operation.NumberValidator(PlayerTwoSecretNumTextBox);
+            bool isNumberValid = Operation.NumberValidator(PlayerTwoSecretNumTextBox, NumOfDigits);
             if(isUsernameValid && isNumberValid)
             {
                 P2name = PlayerTwoUsernameTextBox.Text;

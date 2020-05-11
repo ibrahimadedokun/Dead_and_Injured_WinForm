@@ -19,7 +19,13 @@ namespace Dead_and_Injured
 
         private void settingsOKButton_Click(object sender, EventArgs e)
         {
-            RegisterPlayerDataForm Register = new RegisterPlayerDataForm();
+            if (string.IsNullOrEmpty(numOfDigitsComboBox.Text) || string.IsNullOrEmpty(numOfPlayersComboBox.Text))
+            {
+                MessageBox.Show("Selection Required");
+                return;
+            }
+
+            RegisterPlayerDataForm Register = new RegisterPlayerDataForm(int.Parse(numOfDigitsComboBox.Text));
             Register.Show();
         }
     }

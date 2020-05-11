@@ -14,13 +14,15 @@ namespace MyClassLibrary
             t.Focus();
         }
 
-        public static bool NumberValidator(TextBox t)
+        public static bool NumberValidator(TextBox t, int numLen = 0)
         {
             string option = t.Text.ToString();
+            bool isRepeated = IsDigitRepeated(option);
+            if (isRepeated) { return false; }
             int result;
             bool isNumberValid = false;
             isNumberValid = int.TryParse(option, out result);
-            if (isNumberValid != true) { return false; }
+            if (isNumberValid != true || (option.Length != numLen)) { return false; }
             else { return true; }
         }
 
@@ -29,9 +31,8 @@ namespace MyClassLibrary
             return !(string.IsNullOrEmpty(t.Text.ToString()));
         }
 
-        public static bool IsDigitRepeated(TextBox t)
-        {
-            string s = t.Text.ToString();
+        public static bool IsDigitRepeated(string s)
+        {            
             bool status = false;
             for (int i = 0; i < s.Length; i++)
             {
