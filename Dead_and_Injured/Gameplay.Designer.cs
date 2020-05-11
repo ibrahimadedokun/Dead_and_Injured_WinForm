@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameplayForm));
             this.PlayerOneGroupbox = new System.Windows.Forms.GroupBox();
-            this.PlayerTwoGroupbox = new System.Windows.Forms.GroupBox();
-            this.PlayerOneCompareButton = new System.Windows.Forms.Button();
-            this.PlayerTwoCompareButton = new System.Windows.Forms.Button();
-            this.PlayerOneNumCompareTextbox = new System.Windows.Forms.TextBox();
-            this.PlayerTwoNumCompareTextbox = new System.Windows.Forms.TextBox();
             this.PlayerOneDisplayTextbox = new System.Windows.Forms.TextBox();
+            this.PlayerOneNumCompareTextbox = new System.Windows.Forms.TextBox();
+            this.PlayerOneCompareButton = new System.Windows.Forms.Button();
+            this.PlayerTwoGroupbox = new System.Windows.Forms.GroupBox();
             this.PlayerTwoDisplayTextbox = new System.Windows.Forms.TextBox();
+            this.PlayerTwoNumCompareTextbox = new System.Windows.Forms.TextBox();
+            this.PlayerTwoCompareButton = new System.Windows.Forms.Button();
             this.PlayerOneGroupbox.SuspendLayout();
             this.PlayerTwoGroupbox.SuspendLayout();
             this.SuspendLayout();
@@ -48,28 +48,30 @@
             this.PlayerOneGroupbox.Controls.Add(this.PlayerOneCompareButton);
             this.PlayerOneGroupbox.Location = new System.Drawing.Point(27, 20);
             this.PlayerOneGroupbox.Name = "PlayerOneGroupbox";
-            this.PlayerOneGroupbox.Size = new System.Drawing.Size(200, 500);
+            this.PlayerOneGroupbox.Size = new System.Drawing.Size(300, 500);
             this.PlayerOneGroupbox.TabIndex = 1;
             this.PlayerOneGroupbox.TabStop = false;
             this.PlayerOneGroupbox.Text = "Player 1";
-            this.PlayerOneGroupbox.Enter += new System.EventHandler(this.PlayerOneGroupbox_Enter);
             // 
-            // PlayerTwoGroupbox
+            // PlayerOneDisplayTextbox
             // 
-            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoDisplayTextbox);
-            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoNumCompareTextbox);
-            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoCompareButton);
-            this.PlayerTwoGroupbox.Enabled = false;
-            this.PlayerTwoGroupbox.Location = new System.Drawing.Point(251, 20);
-            this.PlayerTwoGroupbox.Name = "PlayerTwoGroupbox";
-            this.PlayerTwoGroupbox.Size = new System.Drawing.Size(200, 500);
-            this.PlayerTwoGroupbox.TabIndex = 2;
-            this.PlayerTwoGroupbox.TabStop = false;
-            this.PlayerTwoGroupbox.Text = "Player 2";
+            this.PlayerOneDisplayTextbox.Location = new System.Drawing.Point(16, 40);
+            this.PlayerOneDisplayTextbox.Multiline = true;
+            this.PlayerOneDisplayTextbox.Name = "PlayerOneDisplayTextbox";
+            this.PlayerOneDisplayTextbox.ReadOnly = true;
+            this.PlayerOneDisplayTextbox.Size = new System.Drawing.Size(270, 340);
+            this.PlayerOneDisplayTextbox.TabIndex = 2;
+            // 
+            // PlayerOneNumCompareTextbox
+            // 
+            this.PlayerOneNumCompareTextbox.Location = new System.Drawing.Point(81, 413);
+            this.PlayerOneNumCompareTextbox.Name = "PlayerOneNumCompareTextbox";
+            this.PlayerOneNumCompareTextbox.Size = new System.Drawing.Size(135, 30);
+            this.PlayerOneNumCompareTextbox.TabIndex = 1;
             // 
             // PlayerOneCompareButton
             // 
-            this.PlayerOneCompareButton.Location = new System.Drawing.Point(34, 454);
+            this.PlayerOneCompareButton.Location = new System.Drawing.Point(81, 454);
             this.PlayerOneCompareButton.Name = "PlayerOneCompareButton";
             this.PlayerOneCompareButton.Size = new System.Drawing.Size(135, 35);
             this.PlayerOneCompareButton.TabIndex = 0;
@@ -77,51 +79,51 @@
             this.PlayerOneCompareButton.UseVisualStyleBackColor = true;
             this.PlayerOneCompareButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // PlayerTwoCompareButton
+            // PlayerTwoGroupbox
             // 
-            this.PlayerTwoCompareButton.Location = new System.Drawing.Point(34, 454);
-            this.PlayerTwoCompareButton.Name = "PlayerTwoCompareButton";
-            this.PlayerTwoCompareButton.Size = new System.Drawing.Size(135, 35);
-            this.PlayerTwoCompareButton.TabIndex = 0;
-            this.PlayerTwoCompareButton.Text = "COMPARE";
-            this.PlayerTwoCompareButton.UseVisualStyleBackColor = true;
-            // 
-            // PlayerOneNumCompareTextbox
-            // 
-            this.PlayerOneNumCompareTextbox.Location = new System.Drawing.Point(34, 413);
-            this.PlayerOneNumCompareTextbox.Name = "PlayerOneNumCompareTextbox";
-            this.PlayerOneNumCompareTextbox.Size = new System.Drawing.Size(135, 30);
-            this.PlayerOneNumCompareTextbox.TabIndex = 1;
-            // 
-            // PlayerTwoNumCompareTextbox
-            // 
-            this.PlayerTwoNumCompareTextbox.Location = new System.Drawing.Point(34, 413);
-            this.PlayerTwoNumCompareTextbox.Name = "PlayerTwoNumCompareTextbox";
-            this.PlayerTwoNumCompareTextbox.Size = new System.Drawing.Size(135, 30);
-            this.PlayerTwoNumCompareTextbox.TabIndex = 1;
-            // 
-            // PlayerOneDisplayTextbox
-            // 
-            this.PlayerOneDisplayTextbox.Location = new System.Drawing.Point(16, 40);
-            this.PlayerOneDisplayTextbox.Multiline = true;
-            this.PlayerOneDisplayTextbox.Name = "PlayerOneDisplayTextbox";
-            this.PlayerOneDisplayTextbox.Size = new System.Drawing.Size(165, 340);
-            this.PlayerOneDisplayTextbox.TabIndex = 2;
+            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoDisplayTextbox);
+            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoNumCompareTextbox);
+            this.PlayerTwoGroupbox.Controls.Add(this.PlayerTwoCompareButton);
+            this.PlayerTwoGroupbox.Enabled = false;
+            this.PlayerTwoGroupbox.Location = new System.Drawing.Point(349, 20);
+            this.PlayerTwoGroupbox.Name = "PlayerTwoGroupbox";
+            this.PlayerTwoGroupbox.Size = new System.Drawing.Size(300, 500);
+            this.PlayerTwoGroupbox.TabIndex = 2;
+            this.PlayerTwoGroupbox.TabStop = false;
+            this.PlayerTwoGroupbox.Text = "Player 2";
             // 
             // PlayerTwoDisplayTextbox
             // 
             this.PlayerTwoDisplayTextbox.Location = new System.Drawing.Point(20, 40);
             this.PlayerTwoDisplayTextbox.Multiline = true;
             this.PlayerTwoDisplayTextbox.Name = "PlayerTwoDisplayTextbox";
-            this.PlayerTwoDisplayTextbox.Size = new System.Drawing.Size(165, 340);
+            this.PlayerTwoDisplayTextbox.ReadOnly = true;
+            this.PlayerTwoDisplayTextbox.Size = new System.Drawing.Size(270, 340);
             this.PlayerTwoDisplayTextbox.TabIndex = 2;
+            // 
+            // PlayerTwoNumCompareTextbox
+            // 
+            this.PlayerTwoNumCompareTextbox.Location = new System.Drawing.Point(90, 413);
+            this.PlayerTwoNumCompareTextbox.Name = "PlayerTwoNumCompareTextbox";
+            this.PlayerTwoNumCompareTextbox.Size = new System.Drawing.Size(135, 30);
+            this.PlayerTwoNumCompareTextbox.TabIndex = 1;
+            // 
+            // PlayerTwoCompareButton
+            // 
+            this.PlayerTwoCompareButton.Location = new System.Drawing.Point(90, 454);
+            this.PlayerTwoCompareButton.Name = "PlayerTwoCompareButton";
+            this.PlayerTwoCompareButton.Size = new System.Drawing.Size(135, 35);
+            this.PlayerTwoCompareButton.TabIndex = 0;
+            this.PlayerTwoCompareButton.Text = "COMPARE";
+            this.PlayerTwoCompareButton.UseVisualStyleBackColor = true;
+            this.PlayerTwoCompareButton.Click += new System.EventHandler(this.PlayerTwoCompareButton_Click);
             // 
             // GameplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(478, 549);
+            this.ClientSize = new System.Drawing.Size(678, 549);
             this.Controls.Add(this.PlayerTwoGroupbox);
             this.Controls.Add(this.PlayerOneGroupbox);
             this.Font = new System.Drawing.Font("Square721 BT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

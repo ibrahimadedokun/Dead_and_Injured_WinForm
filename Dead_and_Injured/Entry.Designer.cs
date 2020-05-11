@@ -39,7 +39,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Square721 BT", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(75, 55);
+            this.titleLabel.Location = new System.Drawing.Point(84, 44);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(328, 47);
@@ -72,11 +72,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Square721 BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 408);
+            this.label1.Location = new System.Drawing.Point(56, 406);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 21);
+            this.label1.Size = new System.Drawing.Size(356, 21);
             this.label1.TabIndex = 4;
-            this.label1.Text = "A Production of Ibrahim Adedokun";
+            this.label1.Text = "A Production of Ibrahim Adedokun. 2020.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Entry

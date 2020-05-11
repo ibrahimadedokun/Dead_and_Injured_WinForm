@@ -43,7 +43,7 @@ namespace Dead_and_Injured
             }
             else
             {
-                MessageBox.Show("Invalid Details Provided", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Invalid details provided", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -53,21 +53,29 @@ namespace Dead_and_Injured
             bool isNumberValid = Operation.NumberValidator(PlayerTwoSecretNumTextBox, NumOfDigits);
             if(isUsernameValid && isNumberValid)
             {
-                P2name = PlayerTwoUsernameTextBox.Text;
-                P2num = PlayerTwoSecretNumTextBox.Text;
-                PlayerTwoGroupBox.Enabled = false;
-                RegisterPlayersProceedButton.Enabled = true;
+                if(PlayerTwoUsernameTextBox.Text == PlayerOneUsernameTextBox.Text) 
+                {
+                    MessageBox.Show("Identical usernames can't be chosen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    P2name = PlayerTwoUsernameTextBox.Text;
+                    P2num = PlayerTwoSecretNumTextBox.Text;
+                    PlayerTwoGroupBox.Enabled = false;
+                    RegisterPlayersProceedButton.Enabled = true;
+                }                
             }
             else
             {
-                MessageBox.Show("Invalid Details Provided", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Invalid details provided", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void RegisterPlayersProceedButton_Click(object sender, EventArgs e)
         {
             GameplayForm StartGame = new GameplayForm(P1name, P1num, P2name, P2num);
-            StartGame.Show();
+            RegisterPlayersProceedButton.Enabled = false;
+            StartGame.ShowDialog();
         }
     }
 }

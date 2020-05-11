@@ -20,7 +20,8 @@ namespace Dead_and_Injured
         private void startButton_Click(object sender, EventArgs e)
         {
             SettingsForm Settings = new SettingsForm();
-            Settings.Show();
+            Settings.ShowDialog();
         }
+
     }
 }

@@ -15,6 +15,7 @@ namespace Dead_and_Injured
     {
         Player Player1;
         Player Player2;
+        public static string WinWord = "Eureka!"; //This can be found in the Player Class in MyClassLibrary
         public GameplayForm()
         {
             InitializeComponent();
@@ -33,13 +34,32 @@ namespace Dead_and_Injured
             PlayerTwoGroupbox.Text = Player2.Name;
         }
 
-        private void PlayerOneGroupbox_Enter(object sender, EventArgs e)
-        {
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GamePlayCompare(Player1, Player2, PlayerOneNumCompareTextbox, PlayerOneDisplayTextbox, PlayerOneGroupbox, PlayerTwoGroupbox);
+        }
 
+        private void PlayerTwoCompareButton_Click(object sender, EventArgs e)
+        {
+            GamePlayCompare(Player2, Player1, PlayerTwoNumCompareTextbox, PlayerTwoDisplayTextbox, PlayerTwoGroupbox, PlayerOneGroupbox);
+        }
+
+        private void GamePlayCompare(Player activeP, Player passiveP, TextBox T, TextBox dispT, GroupBox activeG, GroupBox passiveG)
+        {
+            string response = activeP.Compare(T, passiveP);
+            if (response == null) { MessageBox.Show("Invalid Entry!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            string display = T.Text + " - " + response;
+            dispT.Text += display + "\r\n";
+            T.ResetText();
+            if(response == WinWord) 
+            { 
+                MessageBox.Show($"{activeP.Name} won", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                activeG.Enabled = false;
+                return;
+            }
+            passiveG.Enabled = true;
+            activeG.Enabled = false;
         }
     }
 }

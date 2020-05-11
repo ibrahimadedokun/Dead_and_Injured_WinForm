@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace MyClassLibrary
 {
@@ -7,9 +9,7 @@ namespace MyClassLibrary
     {
         private string name;
         private int secretDigits;
-        private bool isActive;
-        private bool isNumberGuessed;
-        private List<int> myPlayedDigits = new List<int>();
+        private List<string> myPlayedDigits = new List<string>();
 
         //This will prevent the name to be changed after initialization by the constructor
         public string Name
@@ -17,27 +17,11 @@ namespace MyClassLibrary
             get { return this.name; }
         }
 
-        public List<int> PlayedDigits
-        {
-            get { return this.myPlayedDigits; }
-        }
-
         public int SecretDigits
         {
             get { return this.secretDigits; }
         }
 
-        public bool IsActive
-        {
-            get { return this.isActive; }
-            set { this.isActive = value; }
-        }
-
-        public bool IsGuessed
-        {
-            get { return this.isNumberGuessed; }
-            set { this.isNumberGuessed = value; }
-        }
 
         //Empty Constructor
         public Player() { }
@@ -49,12 +33,18 @@ namespace MyClassLibrary
             this.secretDigits = secretDigits;
         }
 
-        static bool Compare(int firstNumber, int secondNumber)
+        public string Compare(TextBox t, Player p2)
         {
             int deadCounter = 0, injuredCounter = 0;
-            string first = firstNumber.ToString();
-            string second = secondNumber.ToString();
-
+            string first = t.Text, second = p2.SecretDigits.ToString();
+            bool isNumValid = Operation.NumberValidator(t, second.Length);
+            if (isNumValid != true)
+            {
+                return null;
+            }
+            //-------------------------//
+            myPlayedDigits.Add(first); //
+            //-------------------------//
             for (int i = 0; i < first.Length; ++i)
             {
                 for (int j = 0; j < second.Length; ++j)
@@ -62,38 +52,18 @@ namespace MyClassLibrary
                     //To avoid multiple countings of 'dead' digits
                     if (first[i] == second[j])
                     {
-                        if (first[i] == second[i])
-                        {
-                            deadCounter++;
-                        }
-                        else
-                        {
-                            injuredCounter++;
-                        }
+                        if (first[i] == second[i]) { deadCounter++; }
+                        else { injuredCounter++; }
                     }
                 }
             }
 
-            /*
-            if (deadCounter == 0 && injuredCounter == 0)
-            {
-                Console.WriteLine("That ain't the number");
-            }
+            if (deadCounter == 0 && injuredCounter == 0) { return "No luck"; }
             else
             {
-                if (deadCounter == first.Length)
-                {
-                    Console.WriteLine("All dead", ConsoleColor.Green);
-                    Console.WriteLine("Game Over!!!", ConsoleColor.Green);
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine($"{deadCounter} dead, {injuredCounter} injured", ConsoleColor.Yellow);
-                }
+                if (deadCounter == first.Length) { return "Eureka!"; }
+                else { return $"{deadCounter} dead, {injuredCounter} injured"; }
             }
-            */
-            return false;
         }
     }
 

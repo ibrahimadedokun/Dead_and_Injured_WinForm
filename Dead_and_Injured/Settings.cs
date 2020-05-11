@@ -21,12 +21,13 @@ namespace Dead_and_Injured
         {
             if (string.IsNullOrEmpty(numOfDigitsComboBox.Text) || string.IsNullOrEmpty(numOfPlayersComboBox.Text))
             {
-                MessageBox.Show("Selection Required");
+                MessageBox.Show("One or more selection(s) required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             RegisterPlayerDataForm Register = new RegisterPlayerDataForm(int.Parse(numOfDigitsComboBox.Text));
-            Register.Show();
+            settingsOKButton.Enabled = false;
+            Register.ShowDialog();
         }
     }
 }
