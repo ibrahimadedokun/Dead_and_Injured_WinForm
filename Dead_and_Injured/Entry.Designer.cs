@@ -39,7 +39,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Square721 BT", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(84, 44);
+            this.titleLabel.Location = new System.Drawing.Point(86, 44);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(328, 47);
@@ -49,7 +49,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(106, 156);
+            this.startButton.Location = new System.Drawing.Point(118, 156);
             this.startButton.Margin = new System.Windows.Forms.Padding(4);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(263, 57);
@@ -60,19 +60,19 @@
             // 
             // loadButton
             // 
-            this.loadButton.Enabled = false;
-            this.loadButton.Location = new System.Drawing.Point(106, 257);
+            this.loadButton.Location = new System.Drawing.Point(118, 257);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(263, 57);
             this.loadButton.TabIndex = 3;
             this.loadButton.Text = "Load Existing Game";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Square721 BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 406);
+            this.label1.Location = new System.Drawing.Point(72, 406);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(356, 21);
             this.label1.TabIndex = 4;

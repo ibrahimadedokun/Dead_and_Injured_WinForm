@@ -23,5 +23,9 @@ namespace Dead_and_Injured
             Settings.ShowDialog();
         }
 
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not included in this version");
+        }
     }
 }
