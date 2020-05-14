@@ -43,17 +43,17 @@ namespace Dead_and_Injured
             ThreePlayersGameplayCompare(
                 PlayerOneSelectPlayer2Radio, PlayerOneSelectPlayer3Radio,
                 Player1, Player2, Player3,
-                PlayerOneNumCompareTextbox, PlayerOneDisplayTextbox,
-                ref PlayerOneGroupbox, ref PlayerTwoGroupbox);
+                PlayerOneNumCompareTextbox, PlayerOneDisplayTextbox, PlayerTwoDisplayTextbox, PlayerThreeDisplayTextbox,
+                PlayerOneGroupbox, PlayerTwoGroupbox, PlayerThreeGroupbox);
         }
 
         private void PlayerTwoCompareButton_Click(object sender, EventArgs e)
         {
             ThreePlayersGameplayCompare(
-                PlayerTwoSelectPlayer1Radio, PlayerTwoSelectPlayer3Radio,
-                Player2, Player1, Player3,
-                PlayerTwoNumCompareTextbox, PlayerTwoDisplayTextbox,
-                ref PlayerTwoGroupbox, ref PlayerThreeGroupbox);
+                PlayerTwoSelectPlayer3Radio, PlayerTwoSelectPlayer1Radio,
+                Player2, Player3, Player1,
+                PlayerTwoNumCompareTextbox, PlayerTwoDisplayTextbox, PlayerThreeDisplayTextbox, PlayerOneDisplayTextbox,
+                PlayerTwoGroupbox, PlayerThreeGroupbox, PlayerOneGroupbox);
         }
 
         private void PlayerThreeCompareButton_Click(object sender, EventArgs e)
@@ -61,24 +61,26 @@ namespace Dead_and_Injured
             ThreePlayersGameplayCompare(
                 PlayerThreeSelectPlayer1Radio, PlayerThreeSelectPlayer2Radio,
                 Player3, Player1, Player2,
-                PlayerThreeNumCompareTextbox, PlayerThreeDisplayTextbox,
-                ref PlayerThreeGroupbox, ref PlayerOneGroupbox);
+                PlayerThreeNumCompareTextbox, PlayerThreeDisplayTextbox, PlayerOneDisplayTextbox, PlayerTwoDisplayTextbox,
+                PlayerThreeGroupbox, PlayerOneGroupbox, PlayerTwoGroupbox);
         }
 
         private void ThreePlayersGameplayCompare(
-            RadioButton opp1Radio, RadioButton opp2Radio, 
+            RadioButton opp1Radio, RadioButton opp2Radio,
             Player activePlayer, Player opp1, Player opp2, 
-            TextBox activeNums, TextBox activeDisp,
-            ref GroupBox activeGrp, ref GroupBox opp1Grp)
+            TextBox activeNums, TextBox activeDisp, TextBox oppDisp, TextBox otherOppDisp,
+            GroupBox activeGrp, GroupBox opp1Grp, GroupBox opp2Grp)
         {
             string response = null, display = null;
             if (opp1Radio.Checked && opp1.IsActive) { response = activePlayer.Compare(activeNums, opp1); }
             else if (opp2Radio.Checked && opp2.IsActive) { response = activePlayer.Compare(activeNums, opp2); }
-            else { MessageBox.Show("Choose an opponent"); return; }
+            else { MessageBox.Show("Choose an opponent in the game", "Notification"); return; }
             var opponent = (opp1Radio.Checked) ? opp1 : opp2;
+            var otherOpponent = (opp1Radio.Checked) ? otherOppDisp : oppDisp;
             if (response == null) { MessageBox.Show("Invalid Entry!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             display = activeNums.Text + " - " + response + $" ({opponent.Name})";
             activeDisp.Text += display + "\r\n";
+            otherOpponent.Text += display + "\r\n";
             activeNums.ResetText();            
 
             if (response == Operation.WinWord)
@@ -87,13 +89,13 @@ namespace Dead_and_Injured
                 activeGrp.Enabled = false;
                 opponent.IsActive = false; //---------------//
                 if (opp1.IsActive) { opp1Grp.Enabled = true; }
-                else if (opp2.IsActive) { opp1Grp.Enabled = true; }
-                else { MessageBox.Show($"{activePlayer.Name} has won"); }
+                else if (opp2.IsActive) { opp2Grp.Enabled = true; }
+                else { MessageBox.Show($"{activePlayer.Name} has won", "Congratulations", MessageBoxButtons.OK); }
                 return;
             }
             activeGrp.Enabled = false;
             if (opp1.IsActive) { opp1Grp.Enabled = true; }
-            else if (opp2.IsActive) { opp1Grp.Enabled = true; }
+            else if (opp2.IsActive) { opp2Grp.Enabled = true; }
         }        
     }
 }
