@@ -21,11 +21,11 @@ namespace Dead_and_Injured
             InitializeComponent();
         }
 
-        public GameplayForm(string P1name, string P1num, string P2name, string P2num)
+        public GameplayForm(string[,] PDetails)
         {
             InitializeComponent();
-            Player1 = new Player(P1name, int.Parse(P1num));
-            Player2 = new Player(P2name, int.Parse(P2num));
+            Player1 = new Player(PDetails[1, 0], int.Parse(PDetails[1, 1]));
+            Player2 = new Player(PDetails[2, 0], int.Parse(PDetails[2, 1]));
         }
 
         private void GameplayForm_Load(object sender, EventArgs e)

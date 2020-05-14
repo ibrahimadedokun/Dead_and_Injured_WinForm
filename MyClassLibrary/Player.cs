@@ -33,10 +33,10 @@ namespace MyClassLibrary
             this.secretDigits = secretDigits;
         }
 
-        public string Compare(TextBox t, Player p2)
+        public string Compare(TextBox t, Player opponent)
         {
             int deadCounter = 0, injuredCounter = 0;
-            string first = t.Text, second = p2.SecretDigits.ToString();
+            string first = t.Text, second = opponent.SecretDigits.ToString();
             bool isNumValid = Operation.NumberValidator(t, second.Length);
             if (isNumValid != true)
             {

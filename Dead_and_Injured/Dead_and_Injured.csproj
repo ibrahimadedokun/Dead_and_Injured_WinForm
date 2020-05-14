@@ -94,11 +94,23 @@
     <Compile Include="RegisterPlayerData.Designer.cs">
       <DependentUpon>RegisterPlayerData.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterThreePlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterThreePlayers.Designer.cs">
+      <DependentUpon>RegisterThreePlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThreePlayersGameplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThreePlayersGameplay.Designer.cs">
+      <DependentUpon>ThreePlayersGameplay.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Entry.resx">
       <DependentUpon>Entry.cs</DependentUpon>
@@ -118,8 +130,14 @@
     <EmbeddedResource Include="RegisterPlayerData.resx">
       <DependentUpon>RegisterPlayerData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterThreePlayers.resx">
+      <DependentUpon>RegisterThreePlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreePlayersGameplay.resx">
+      <DependentUpon>ThreePlayersGameplay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Dead_and_Injured_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

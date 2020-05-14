@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,33 +8,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MyClassLibrary;
 
 namespace Dead_and_Injured
 {
-    public partial class RegisterPlayerDataForm : Form
+    public partial class RegisterThreePlayersForm : Form
     {
-        public RegisterPlayerDataForm()
+        public RegisterThreePlayersForm()
         {
             InitializeComponent();
         }
 
-        public RegisterPlayerDataForm(int numOfDigits)
+        public RegisterThreePlayersForm(int numOfDigits, int numOfPlayers)
         {
             InitializeComponent();
             NumOfDigits = numOfDigits;
+            NumOfPlayers = numOfPlayers;
         }
 
         public static string[,] PlayerDetails = new string[,]
         {
+        //--Username, Number--//
+            {null, null },
             {null, null },
             {null, null },
             {null, null }
         };
 
         public static int NumOfDigits;
+        public static int NumOfPlayers;
 
-        public void PlayerOneSaveDataButton_Click(object sender, EventArgs e)
+        private void PlayerOneSaveDataButton_Click(object sender, EventArgs e)
         {
             bool isUsernameValid = Operation.TextValidator(PlayerOneUsernameTextBox);
             bool isNumberValid = Operation.NumberValidator(PlayerOneSecretNumTextBox, NumOfDigits);
@@ -50,13 +54,14 @@ namespace Dead_and_Injured
             }
         }
 
-        public void PlayerTwoDataSaveButton_Click(object sender, EventArgs e)
+
+        private void PlayerTwoSaveDataButton_Click(object sender, EventArgs e)
         {
             bool isUsernameValid = Operation.TextValidator(PlayerTwoUsernameTextBox);
             bool isNumberValid = Operation.NumberValidator(PlayerTwoSecretNumTextBox, NumOfDigits);
-            if(isUsernameValid && isNumberValid)
+            if (isUsernameValid && isNumberValid)
             {
-                if(PlayerTwoUsernameTextBox.Text == PlayerOneUsernameTextBox.Text) 
+                if (PlayerTwoUsernameTextBox.Text == PlayerOneUsernameTextBox.Text)
                 {
                     MessageBox.Show("Identical usernames can't be chosen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -65,8 +70,33 @@ namespace Dead_and_Injured
                     PlayerDetails[2, 0] = PlayerTwoUsernameTextBox.Text;
                     PlayerDetails[2, 1] = PlayerTwoSecretNumTextBox.Text;
                     PlayerTwoGroupBox.Enabled = false;
+                    PlayerThreeGroupBox.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid details provided", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
+        private void PlayerThreeSaveDataButton_Click(object sender, EventArgs e)
+        {
+            bool isUsernameValid = Operation.TextValidator(PlayerThreeUsernameTextBox);
+            bool isNumberValid = Operation.NumberValidator(PlayerThreeSecretNumTextBox, NumOfDigits);
+            if (isUsernameValid && isNumberValid)
+            {
+                if ((PlayerThreeUsernameTextBox.Text == PlayerTwoUsernameTextBox.Text) || (PlayerThreeUsernameTextBox.Text == PlayerOneUsernameTextBox.Text))
+                {
+                    MessageBox.Show("Identical usernames can't be chosen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    PlayerDetails[3, 0] = PlayerThreeUsernameTextBox.Text;
+                    PlayerDetails[3, 1] = PlayerThreeSecretNumTextBox.Text;
+                    PlayerThreeGroupBox.Enabled = false;
                     RegisterPlayersProceedButton.Enabled = true;
-                }                
+                }
             }
             else
             {
@@ -76,9 +106,9 @@ namespace Dead_and_Injured
 
         private void RegisterPlayersProceedButton_Click(object sender, EventArgs e)
         {
-            GameplayForm StartGame = new GameplayForm(PlayerDetails);
+            ThreePlayersGameplayForm Gameplay = new ThreePlayersGameplayForm(PlayerDetails);
             RegisterPlayersProceedButton.Enabled = false;
-            StartGame.ShowDialog();
+            Gameplay.ShowDialog();
         }
     }
 }

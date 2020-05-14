@@ -63,7 +63,8 @@
             this.numOfPlayersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.numOfPlayersComboBox.FormattingEnabled = true;
             this.numOfPlayersComboBox.Items.AddRange(new object[] {
-            "2"});
+            "2",
+            "3"});
             this.numOfPlayersComboBox.Location = new System.Drawing.Point(388, 23);
             this.numOfPlayersComboBox.Name = "numOfPlayersComboBox";
             this.numOfPlayersComboBox.Size = new System.Drawing.Size(44, 29);

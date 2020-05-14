@@ -25,9 +25,20 @@ namespace Dead_and_Injured
                 return;
             }
 
-            RegisterPlayerDataForm Register = new RegisterPlayerDataForm(int.Parse(numOfDigitsComboBox.Text));
-            settingsOKButton.Enabled = false;
-            Register.ShowDialog();
+            if(numOfPlayersComboBox.Text == "2")
+            {
+                RegisterPlayerDataForm Register = new RegisterPlayerDataForm(int.Parse(numOfDigitsComboBox.Text));
+                settingsOKButton.Enabled = false;
+                Register.ShowDialog();
+            }
+            else if(numOfPlayersComboBox.Text == "3")
+            {
+                RegisterThreePlayersForm Register = new RegisterThreePlayersForm(int.Parse(numOfDigitsComboBox.Text), int.Parse(numOfPlayersComboBox.Text));
+                settingsOKButton.Enabled = false;
+                Register.ShowDialog();
+            }
+
+            
         }
     }
 }
