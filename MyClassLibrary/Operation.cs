@@ -7,12 +7,7 @@ namespace MyClassLibrary
 {
     public class Operation
     {
-        public static void ResetTextBox(TextBox t, TextBox t1 = null)
-        {
-            t.ResetText();
-            t1.ResetText();
-            t.Focus();
-        }
+        public static string WinWord = "Eureka!";
 
         public static bool NumberValidator(TextBox t, int numLen = 0)
         {

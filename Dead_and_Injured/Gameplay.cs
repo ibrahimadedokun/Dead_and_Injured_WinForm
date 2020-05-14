@@ -15,7 +15,6 @@ namespace Dead_and_Injured
     {
         Player Player1;
         Player Player2;
-        public static string WinWord = "Eureka!"; //This can be found in the Player Class in MyClassLibrary
         public GameplayForm()
         {
             InitializeComponent();
@@ -52,7 +51,7 @@ namespace Dead_and_Injured
             string display = T.Text + " - " + response;
             dispT.Text += display + "\r\n";
             T.ResetText();
-            if(response == WinWord) 
+            if(response == Operation.WinWord) 
             { 
                 MessageBox.Show($"{activeP.Name} won", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 activeG.Enabled = false;

@@ -89,7 +89,6 @@
             this.PlayerOneSelectPlayer2Radio.Name = "PlayerOneSelectPlayer2Radio";
             this.PlayerOneSelectPlayer2Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerOneSelectPlayer2Radio.TabIndex = 3;
-            this.PlayerOneSelectPlayer2Radio.TabStop = true;
             this.PlayerOneSelectPlayer2Radio.Text = "Player 2";
             this.PlayerOneSelectPlayer2Radio.UseVisualStyleBackColor = true;
             // 
@@ -100,7 +99,6 @@
             this.PlayerOneSelectPlayer3Radio.Name = "PlayerOneSelectPlayer3Radio";
             this.PlayerOneSelectPlayer3Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerOneSelectPlayer3Radio.TabIndex = 4;
-            this.PlayerOneSelectPlayer3Radio.TabStop = true;
             this.PlayerOneSelectPlayer3Radio.Text = "Player 3";
             this.PlayerOneSelectPlayer3Radio.UseVisualStyleBackColor = true;
             // 
@@ -162,7 +160,6 @@
             this.PlayerTwoSelectPlayer1Radio.Name = "PlayerTwoSelectPlayer1Radio";
             this.PlayerTwoSelectPlayer1Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerTwoSelectPlayer1Radio.TabIndex = 3;
-            this.PlayerTwoSelectPlayer1Radio.TabStop = true;
             this.PlayerTwoSelectPlayer1Radio.Text = "Player 1";
             this.PlayerTwoSelectPlayer1Radio.UseVisualStyleBackColor = true;
             // 
@@ -173,7 +170,6 @@
             this.PlayerTwoSelectPlayer3Radio.Name = "PlayerTwoSelectPlayer3Radio";
             this.PlayerTwoSelectPlayer3Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerTwoSelectPlayer3Radio.TabIndex = 4;
-            this.PlayerTwoSelectPlayer3Radio.TabStop = true;
             this.PlayerTwoSelectPlayer3Radio.Text = "Player 3";
             this.PlayerTwoSelectPlayer3Radio.UseVisualStyleBackColor = true;
             // 
@@ -192,6 +188,7 @@
             this.PlayerTwoCompareButton.TabIndex = 1;
             this.PlayerTwoCompareButton.Text = "COMPARE";
             this.PlayerTwoCompareButton.UseVisualStyleBackColor = true;
+            this.PlayerTwoCompareButton.Click += new System.EventHandler(this.PlayerTwoCompareButton_Click);
             // 
             // PlayerTwoDisplayTextbox
             // 
@@ -234,7 +231,6 @@
             this.PlayerThreeSelectPlayer1Radio.Name = "PlayerThreeSelectPlayer1Radio";
             this.PlayerThreeSelectPlayer1Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerThreeSelectPlayer1Radio.TabIndex = 3;
-            this.PlayerThreeSelectPlayer1Radio.TabStop = true;
             this.PlayerThreeSelectPlayer1Radio.Text = "Player 1";
             this.PlayerThreeSelectPlayer1Radio.UseVisualStyleBackColor = true;
             // 
@@ -245,7 +241,6 @@
             this.PlayerThreeSelectPlayer2Radio.Name = "PlayerThreeSelectPlayer2Radio";
             this.PlayerThreeSelectPlayer2Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerThreeSelectPlayer2Radio.TabIndex = 4;
-            this.PlayerThreeSelectPlayer2Radio.TabStop = true;
             this.PlayerThreeSelectPlayer2Radio.Text = "Player 2";
             this.PlayerThreeSelectPlayer2Radio.UseVisualStyleBackColor = true;
             // 
@@ -264,6 +259,7 @@
             this.PlayerThreeCompareButton.TabIndex = 1;
             this.PlayerThreeCompareButton.Text = "COMPARE";
             this.PlayerThreeCompareButton.UseVisualStyleBackColor = true;
+            this.PlayerThreeCompareButton.Click += new System.EventHandler(this.PlayerThreeCompareButton_Click);
             // 
             // PlayerThreeDisplayTextbox
             // 

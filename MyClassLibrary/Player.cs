@@ -9,6 +9,7 @@ namespace MyClassLibrary
     {
         private string name;
         private int secretDigits;
+        private bool isActive = true;
         private List<string> myPlayedDigits = new List<string>();
 
         //This will prevent the name to be changed after initialization by the constructor
@@ -20,6 +21,12 @@ namespace MyClassLibrary
         public int SecretDigits
         {
             get { return this.secretDigits; }
+        }
+
+        public bool IsActive
+        {
+            get { return this.isActive; }
+            set { this.isActive = value; }
         }
 
 
