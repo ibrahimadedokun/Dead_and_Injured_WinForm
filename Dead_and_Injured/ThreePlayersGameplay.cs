@@ -72,13 +72,22 @@ namespace Dead_and_Injured
             GroupBox activeGrp, GroupBox opp1Grp, GroupBox opp2Grp)
         {
             string response = null, display = null;
+            //Check which player is selected for number comparison
             if (opp1Radio.Checked && opp1.IsActive) { response = activePlayer.Compare(activeNums, opp1); }
+
             else if (opp2Radio.Checked && opp2.IsActive) { response = activePlayer.Compare(activeNums, opp2); }
+
             else { MessageBox.Show("Choose an opponent in the game", "Notification"); return; }
+
+            //Variable to store which player has been selected
             var opponent = (opp1Radio.Checked) ? opp1 : opp2;
+            //Variable to hold other players who should get the result
             var otherOpponent = (opp1Radio.Checked) ? otherOppDisp : oppDisp;
+            
             if (response == null) { MessageBox.Show("Invalid Entry!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            
             display = activeNums.Text + " - " + response + $" ({opponent.Name})";
+            //Carriage return plus a new line
             activeDisp.Text += display + "\r\n";
             otherOpponent.Text += display + "\r\n";
             activeNums.ResetText();            
@@ -87,7 +96,7 @@ namespace Dead_and_Injured
             {
                 MessageBox.Show($"{opponent.Name} is out of the game");
                 activeGrp.Enabled = false;
-                opponent.IsActive = false; //---------------//
+                opponent.IsActive = false;
                 if (opp1.IsActive) { opp1Grp.Enabled = true; }
                 else if (opp2.IsActive) { opp2Grp.Enabled = true; }
                 else { MessageBox.Show($"{activePlayer.Name} has won", "Congratulations", MessageBoxButtons.OK); }
