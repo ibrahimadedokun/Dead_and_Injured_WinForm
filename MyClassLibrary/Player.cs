@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Windows.Forms;
 
 namespace MyClassLibrary
 {
-    public class Player
+    [Serializable()]
+    public class Player : ISerializable
     {
         private string name;
         private int secretDigits;
         private bool isActive = true;
-        private List<string> myPlayedDigits = new List<string>();
+        private List<int> myPlayedDigits = new List<int>();
 
         //This will prevent the name to be changed after initialization by the constructor
         public string Name
@@ -50,7 +52,7 @@ namespace MyClassLibrary
                 return null;
             }
             //-------------------------//
-            myPlayedDigits.Add(first); //
+            myPlayedDigits.Add(int.Parse(first)); //
             //-------------------------//
             for (int i = 0; i < first.Length; ++i)
             {
@@ -71,6 +73,22 @@ namespace MyClassLibrary
                 if (deadCounter == first.Length) { return "Eureka!"; }
                 else { return $"{deadCounter} dead, {injuredCounter} injured"; }
             }
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Player_Name", this.name);
+            info.AddValue("Secret_Digits", this.secretDigits);
+            info.AddValue("Active?", this.isActive);
+            info.AddValue("Played_Digits", this.myPlayedDigits);
+        }
+
+        public Player(SerializationInfo info, StreamingContext context)
+        {
+            name = (string)info.GetValue("Player_Name", typeof(string));
+            secretDigits = (int)info.GetValue("Secret_Digits", typeof(int));
+            isActive = (bool)info.GetValue("Active?", typeof(bool));
+            myPlayedDigits = (List<int>)info.GetValue("Played_Digits", typeof(List<int>));
         }
     }
 

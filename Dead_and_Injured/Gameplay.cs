@@ -1,12 +1,7 @@
 ﻿using MyClassLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
 namespace Dead_and_Injured
@@ -15,6 +10,7 @@ namespace Dead_and_Injured
     {
         Player Player1;
         Player Player2;
+        
         public GameplayForm()
         {
             InitializeComponent();
@@ -59,6 +55,20 @@ namespace Dead_and_Injured
             }
             passiveG.Enabled = true;
             activeG.Enabled = false;
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            string MySavedFileName = MyTasks.SaveFile();
+            if(MySavedFileName == null) { return; }
+            Operation.Saved = MySavedFileName;
+            Stream stream = File.Open(MySavedFileName, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(stream, Player1);
+            bf.Serialize(stream, Player2);
+            MessageBox.Show("Game Saved");
+            stream.Close();
+            this.Close();
         }
     }
 }

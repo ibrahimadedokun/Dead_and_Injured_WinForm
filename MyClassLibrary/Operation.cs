@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MyClassLibrary
 {
     public class Operation
     {
         public static string WinWord = "Eureka!";
+        public static string Saved;
 
         public static bool NumberValidator(TextBox t, int numLen = 0)
         {

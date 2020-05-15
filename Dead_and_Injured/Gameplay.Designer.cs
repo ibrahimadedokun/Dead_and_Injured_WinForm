@@ -37,6 +37,7 @@
             this.PlayerTwoDisplayTextbox = new System.Windows.Forms.TextBox();
             this.PlayerTwoNumCompareTextbox = new System.Windows.Forms.TextBox();
             this.PlayerTwoCompareButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.PlayerOneGroupbox.SuspendLayout();
             this.PlayerTwoGroupbox.SuspendLayout();
             this.SuspendLayout();
@@ -118,12 +119,23 @@
             this.PlayerTwoCompareButton.UseVisualStyleBackColor = true;
             this.PlayerTwoCompareButton.Click += new System.EventHandler(this.PlayerTwoCompareButton_Click);
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(295, 541);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(90, 35);
+            this.SaveButton.TabIndex = 4;
+            this.SaveButton.Text = "SAVE";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // GameplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(678, 549);
+            this.ClientSize = new System.Drawing.Size(678, 599);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.PlayerTwoGroupbox);
             this.Controls.Add(this.PlayerOneGroupbox);
             this.Font = new System.Drawing.Font("Square721 BT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,5 +168,6 @@
         private System.Windows.Forms.TextBox PlayerTwoNumCompareTextbox;
         private System.Windows.Forms.TextBox PlayerOneDisplayTextbox;
         private System.Windows.Forms.TextBox PlayerTwoDisplayTextbox;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
