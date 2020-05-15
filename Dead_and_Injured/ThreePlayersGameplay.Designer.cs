@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThreePlayersGameplayForm));
             this.PlayerOneGroupbox = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -50,6 +51,9 @@
             this.PlayerThreeNumCompareTextbox = new System.Windows.Forms.TextBox();
             this.PlayerThreeCompareButton = new System.Windows.Forms.Button();
             this.PlayerThreeDisplayTextbox = new System.Windows.Forms.TextBox();
+            this.TimerDisplayTextbox = new System.Windows.Forms.Label();
+            this.RoundTimer = new System.Windows.Forms.Timer(this.components);
+            this.TimerCountTextbox = new System.Windows.Forms.Label();
             this.PlayerOneGroupbox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.PlayerTwoGroupbox.SuspendLayout();
@@ -270,12 +274,38 @@
             this.PlayerThreeDisplayTextbox.Size = new System.Drawing.Size(270, 340);
             this.PlayerThreeDisplayTextbox.TabIndex = 0;
             // 
+            // TimerDisplayTextbox
+            // 
+            this.TimerDisplayTextbox.AutoSize = true;
+            this.TimerDisplayTextbox.Location = new System.Drawing.Point(385, 596);
+            this.TimerDisplayTextbox.Name = "TimerDisplayTextbox";
+            this.TimerDisplayTextbox.Size = new System.Drawing.Size(135, 23);
+            this.TimerDisplayTextbox.TabIndex = 5;
+            this.TimerDisplayTextbox.Text = "Timer (secs): ";
+            // 
+            // RoundTimer
+            // 
+            this.RoundTimer.Enabled = true;
+            this.RoundTimer.Interval = 1000;
+            this.RoundTimer.Tick += new System.EventHandler(this.RoundTimer_Tick);
+            // 
+            // TimerCountTextbox
+            // 
+            this.TimerCountTextbox.AutoSize = true;
+            this.TimerCountTextbox.Location = new System.Drawing.Point(542, 596);
+            this.TimerCountTextbox.Name = "TimerCountTextbox";
+            this.TimerCountTextbox.Size = new System.Drawing.Size(36, 23);
+            this.TimerCountTextbox.TabIndex = 6;
+            this.TimerCountTextbox.Text = "65";
+            // 
             // ThreePlayersGameplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(988, 599);
+            this.ClientSize = new System.Drawing.Size(988, 649);
+            this.Controls.Add(this.TimerCountTextbox);
+            this.Controls.Add(this.TimerDisplayTextbox);
             this.Controls.Add(this.PlayerThreeGroupbox);
             this.Controls.Add(this.PlayerTwoGroupbox);
             this.Controls.Add(this.PlayerOneGroupbox);
@@ -304,6 +334,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -330,5 +361,8 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton PlayerThreeSelectPlayer1Radio;
         private System.Windows.Forms.RadioButton PlayerThreeSelectPlayer2Radio;
+        private System.Windows.Forms.Label TimerDisplayTextbox;
+        private System.Windows.Forms.Timer RoundTimer;
+        private System.Windows.Forms.Label TimerCountTextbox;
     }
 }

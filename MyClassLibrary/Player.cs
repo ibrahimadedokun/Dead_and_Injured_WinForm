@@ -10,9 +10,9 @@ namespace MyClassLibrary
     public class Player : ISerializable
     {
         private string name;
-        private int secretDigits;
+        private string secretDigits;
         private bool isActive = true;
-        private List<int> myPlayedDigits = new List<int>();
+        private List<string> myPlayedDigits = new List<string>();
 
         //This will prevent the name to be changed after initialization by the constructor
         public string Name
@@ -20,7 +20,7 @@ namespace MyClassLibrary
             get { return this.name; }
         }
 
-        public int SecretDigits
+        public string SecretDigits
         {
             get { return this.secretDigits; }
         }
@@ -36,7 +36,7 @@ namespace MyClassLibrary
         public Player() { }
 
         //Constructor to initialize the name and secret digits which are afterwards unchangeable
-        public Player(string name, int secretDigits)
+        public Player(string name, string secretDigits)
         {
             this.name = name;
             this.secretDigits = secretDigits;
@@ -52,7 +52,7 @@ namespace MyClassLibrary
                 return null;
             }
             //-------------------------//
-            myPlayedDigits.Add(int.Parse(first)); //
+            myPlayedDigits.Add(first); //
             //-------------------------//
             for (int i = 0; i < first.Length; ++i)
             {
@@ -86,9 +86,9 @@ namespace MyClassLibrary
         public Player(SerializationInfo info, StreamingContext context)
         {
             name = (string)info.GetValue("Player_Name", typeof(string));
-            secretDigits = (int)info.GetValue("Secret_Digits", typeof(int));
+            secretDigits = (string)info.GetValue("Secret_Digits", typeof(string));
             isActive = (bool)info.GetValue("Active?", typeof(bool));
-            myPlayedDigits = (List<int>)info.GetValue("Played_Digits", typeof(List<int>));
+            myPlayedDigits = (List<string>)info.GetValue("Played_Digits", typeof(List<string>));
         }
     }
 
