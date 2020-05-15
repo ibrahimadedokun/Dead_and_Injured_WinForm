@@ -99,10 +99,12 @@
             // PlayerOneSelectPlayer3Radio
             // 
             this.PlayerOneSelectPlayer3Radio.AutoSize = true;
+            this.PlayerOneSelectPlayer3Radio.Checked = true;
             this.PlayerOneSelectPlayer3Radio.Location = new System.Drawing.Point(6, 59);
             this.PlayerOneSelectPlayer3Radio.Name = "PlayerOneSelectPlayer3Radio";
             this.PlayerOneSelectPlayer3Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerOneSelectPlayer3Radio.TabIndex = 4;
+            this.PlayerOneSelectPlayer3Radio.TabStop = true;
             this.PlayerOneSelectPlayer3Radio.Text = "Player 3";
             this.PlayerOneSelectPlayer3Radio.UseVisualStyleBackColor = true;
             // 
@@ -160,10 +162,12 @@
             // PlayerTwoSelectPlayer1Radio
             // 
             this.PlayerTwoSelectPlayer1Radio.AutoSize = true;
+            this.PlayerTwoSelectPlayer1Radio.Checked = true;
             this.PlayerTwoSelectPlayer1Radio.Location = new System.Drawing.Point(6, 29);
             this.PlayerTwoSelectPlayer1Radio.Name = "PlayerTwoSelectPlayer1Radio";
             this.PlayerTwoSelectPlayer1Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerTwoSelectPlayer1Radio.TabIndex = 3;
+            this.PlayerTwoSelectPlayer1Radio.TabStop = true;
             this.PlayerTwoSelectPlayer1Radio.Text = "Player 1";
             this.PlayerTwoSelectPlayer1Radio.UseVisualStyleBackColor = true;
             // 
@@ -241,10 +245,12 @@
             // PlayerThreeSelectPlayer2Radio
             // 
             this.PlayerThreeSelectPlayer2Radio.AutoSize = true;
+            this.PlayerThreeSelectPlayer2Radio.Checked = true;
             this.PlayerThreeSelectPlayer2Radio.Location = new System.Drawing.Point(6, 57);
             this.PlayerThreeSelectPlayer2Radio.Name = "PlayerThreeSelectPlayer2Radio";
             this.PlayerThreeSelectPlayer2Radio.Size = new System.Drawing.Size(106, 27);
             this.PlayerThreeSelectPlayer2Radio.TabIndex = 4;
+            this.PlayerThreeSelectPlayer2Radio.TabStop = true;
             this.PlayerThreeSelectPlayer2Radio.Text = "Player 2";
             this.PlayerThreeSelectPlayer2Radio.UseVisualStyleBackColor = true;
             // 

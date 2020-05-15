@@ -31,7 +31,12 @@ namespace Dead_and_Injured
             PlayerTwoGroupbox.Text = PlayerOneSelectPlayer2Radio.Text = PlayerThreeSelectPlayer2Radio.Text = Player2.Name;
             PlayerThreeGroupbox.Text = PlayerOneSelectPlayer3Radio.Text = PlayerTwoSelectPlayer3Radio.Text = Player3.Name;
 
-            RoundTimer.Start();            
+            StartTimer();           
+        }
+        void StartTimer()
+        {
+            _ticks = 0;
+            RoundTimer.Start();
         }
 
         private void PlayerOneCompareButton_Click(object sender, EventArgs e)
@@ -42,7 +47,7 @@ namespace Dead_and_Injured
                 PlayerOneNumCompareTextbox, PlayerOneDisplayTextbox, PlayerTwoDisplayTextbox, PlayerThreeDisplayTextbox,
                 PlayerOneGroupbox, PlayerTwoGroupbox, PlayerThreeGroupbox);
             //Reset time countdown
-            _ticks = 0;
+            StartTimer();
         }
 
         private void PlayerTwoCompareButton_Click(object sender, EventArgs e)
@@ -52,7 +57,7 @@ namespace Dead_and_Injured
                 Player2, Player3, Player1,
                 PlayerTwoNumCompareTextbox, PlayerTwoDisplayTextbox, PlayerThreeDisplayTextbox, PlayerOneDisplayTextbox,
                 PlayerTwoGroupbox, PlayerThreeGroupbox, PlayerOneGroupbox);
-            _ticks = 0;
+            StartTimer();
         }
 
         private void PlayerThreeCompareButton_Click(object sender, EventArgs e)
@@ -62,7 +67,7 @@ namespace Dead_and_Injured
                 Player3, Player1, Player2,
                 PlayerThreeNumCompareTextbox, PlayerThreeDisplayTextbox, PlayerOneDisplayTextbox, PlayerTwoDisplayTextbox,
                 PlayerThreeGroupbox, PlayerOneGroupbox, PlayerTwoGroupbox);
-            _ticks = 0;
+            StartTimer();
         }
 
         private void ThreePlayersGameplayCompare(
@@ -83,29 +88,33 @@ namespace Dead_and_Injured
             var opponent = (opp1Radio.Checked) ? opp1 : opp2;
             //Variable to hold other players who should get the result
             var otherOpponent = (opp1Radio.Checked) ? otherOppDisp : oppDisp;
-            
+
             if (response == null) { MessageBox.Show("Invalid Entry!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
-            
+
             display = activeNums.Text + " - " + response + $" ({opponent.Name})";
             //Carriage return plus a new line
             activeDisp.Text += display + "\r\n";
             otherOpponent.Text += display + "\r\n";
-            activeNums.ResetText();            
+            Operation.ScrollTextBox(activeDisp);
+            Operation.ScrollTextBox(otherOpponent);
+            activeNums.ResetText();
 
             if (response == Operation.WinWord)
             {
+                RoundTimer.Stop();
                 MessageBox.Show($"{opponent.Name} is out of the game");
                 activeGrp.Enabled = false;
                 opponent.IsActive = false;
                 if (opp1.IsActive) { opp1Grp.Enabled = true; }
                 else if (opp2.IsActive) { opp2Grp.Enabled = true; }
-                else { MessageBox.Show($"{activePlayer.Name} has won", "Congratulations", MessageBoxButtons.OK); }
+                else { RoundTimer.Stop(); MessageBox.Show($"{activePlayer.Name} has won", "Congratulations", MessageBoxButtons.OK); }
                 return;
             }
             activeGrp.Enabled = false;
             if (opp1.IsActive) { opp1Grp.Enabled = true; }
             else if (opp2.IsActive) { opp2Grp.Enabled = true; }
         }
+                
 
         private void RoundTimer_Tick(object sender, EventArgs e)
         {
@@ -128,8 +137,7 @@ namespace Dead_and_Injured
                 {
                     TimeOutSwitch(PlayerThreeGroupbox, PlayerOneGroupbox);
                 }
-                _ticks = 0;
-                RoundTimer.Start();
+                StartTimer();
             }
         }
 

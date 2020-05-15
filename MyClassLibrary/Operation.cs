@@ -7,6 +7,12 @@ namespace MyClassLibrary
         public static string WinWord = "Eureka!";
         public static string Saved;
 
+        public static void ScrollTextBox(TextBox t)
+        {
+            t.SelectionStart = t.Text.Length;
+            t.ScrollToCaret();
+        }
+
         public static bool NumberValidator(TextBox t, int numLen = 0)
         {
             string option = t.Text.ToString();

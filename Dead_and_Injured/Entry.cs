@@ -21,21 +21,22 @@ namespace Dead_and_Injured
 
         private void loadButton_Click(object sender, EventArgs e)
         {
-            Stream stream = null;
-            BinaryFormatter bf = null;
-            try
-            {
-                stream = File.Open(Operation.Saved, FileMode.Open);
-                bf = new BinaryFormatter();
-                Player newPlayer1 = (Player)bf.Deserialize(stream);
-                Player newPlayer2 = (Player)bf.Deserialize(stream);
-                stream.Close();
-                MessageBox.Show("Loaded");
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("No saved game found");
-            }
+            MessageBox.Show("Feature not included yet");
+            //Stream stream = null;
+            //BinaryFormatter bf = null;
+            //try
+            //{
+            //    stream = File.Open(Operation.Saved, FileMode.Open);
+            //    bf = new BinaryFormatter();
+            //    Player newPlayer1 = (Player)bf.Deserialize(stream);
+            //    Player newPlayer2 = (Player)bf.Deserialize(stream);
+            //    stream.Close();
+            //    MessageBox.Show("Loaded");
+            //}
+            //catch (FileNotFoundException)
+            //{
+            //    MessageBox.Show("No saved game found");
+            //}
         }
     }
 }
